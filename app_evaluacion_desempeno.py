@@ -387,7 +387,7 @@ elif modo == "RH":
             valor = trab.get(campo, "")
             cols[i % 2].text_input(etiquetas[i], "" if pd.isna(valor) else str(valor), disabled=True)
 
-            # ---------------- FUNCIONES Y METAS ----------------
+        # ---------------- FUNCIONES Y METAS ----------------
         st.subheader("Actividades Principales")
         for i in range(1, 4):
             st.text_input(
@@ -397,7 +397,15 @@ elif modo == "RH":
                 key=f"{ctx}_actividad_{i}"
             )
 
-        st.subheader("Metas Reales Cumplidas")
+        st.subheader("Metas (avance por tramo)")
+
+        # Tramos definidos con valor representativo (punto medio)
+        TRAMOS = [
+            ("0–25%  | Avance mínimo", 12.5),
+            ("26–50% | Avance parcial", 37.5),
+            ("51–75% | Avance significativo", 62.5),
+            ("76–100% | Meta alcanzada", 87.5),
+        ]
 
         meta_real, resultados = {}, {}
 
@@ -411,37 +419,40 @@ elif modo == "RH":
                 prog = 0.0
 
             st.markdown(f"**Meta {i}:** {desc}")
-            st.caption(f"Programada: {prog:g}" if prog else "Programada: 0 (sin dato / no aplica)")
+            st.caption(
+                f"Programada: {prog:g}" if prog else "Programada: 0 (sin dato / no aplica)"
+            )
 
-            # ✅ Captura binaria
             colA, colB = st.columns([1, 2])
 
             with colA:
-                cumplida = st.radio(
-                    f"¿Cumplió Meta {i}?",
-                    options=["No", "Sí"],
+                tramo_label = st.selectbox(
+                    f"Selecciona el nivel de avance",
+                    options=[t[0] for t in TRAMOS],
                     index=0,
-                    horizontal=True,
-                    key=f"{ctx}_meta{i}_cumplida"
+                    key=f"{ctx}_meta{i}_tramo"
                 )
 
-            # Guardar como numérico para que tu DB no cambie:
-            # - meta{i}_real = prog si "Sí", 0 si "No"
-            # - resultado{i} = 100 si "Sí", 0 si "No"
-            if cumplida == "Sí":
-                meta_real[f"meta{i}_real"] = float(prog) if prog else 1.0
-                resultados[f"resultado{i}"] = 100.0
-                with colB:
-                    st.success("Resultado: 100%")
+            # Obtener porcentaje asociado al tramo seleccionado
+            pct = next(valor for (label, valor) in TRAMOS if label == tramo_label)
+
+            # Guardar valores numéricos para base de datos
+            resultados[f"resultado{i}"] = float(pct)
+
+            if prog:
+                meta_real[f"meta{i}_real"] = float(prog) * (pct / 100.0)
             else:
                 meta_real[f"meta{i}_real"] = 0.0
-                resultados[f"resultado{i}"] = 0.0
-                with colB:
-                    st.error("Resultado: 0%")
+
+            with colB:
+                st.info(f"Avance asignado: {pct:.1f}%")
+                if prog:
+                    st.write(
+                        f"Equivalente en unidades: "
+                        f"{meta_real[f'meta{i}_real']:.2f} de {prog:g}"
+                    )
 
             st.divider()
-
-
         # ===========================================================
         # FACTORES DE CALIDAD (MATRIZ = selección + glosa por celda)
         # (UNA SOLA VEZ POR EVALUACIÓN)
@@ -938,6 +949,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
