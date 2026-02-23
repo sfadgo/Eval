@@ -544,12 +544,17 @@ elif modo == "RH":
                 prog = 0.0
 
             nivel_sel, pct = meta_bloques(ctx=ctx, meta_idx=i, desc=desc, prog=prog, default_level=1)
-
+            RANGOS_TEXTO = {
+            1: "0–25%",
+            2: "26–50%",
+            3: "51–75%",
+            4: "76–100%",
+            }
             # Guardado numérico
             resultados[f"resultado{i}"] = float(pct)
             meta_real[f"meta{i}_real"] = float(prog) * (pct / 100.0) if prog else 0.0
 
-            st.info(f"Avance asignado: {tramo_label.split('|')[0].strip()}")
+            st.info(f"Avance asignado: {RANGOS_TEXTO[nivel_sel]}")
             if prog:
                 st.write(f"Equivalente en unidades: {meta_real[f'meta{i}_real']:.2f} de {prog:g}")
 
@@ -1050,6 +1055,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
