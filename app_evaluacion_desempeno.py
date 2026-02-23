@@ -399,13 +399,138 @@ elif modo == "RH":
 
         st.subheader("Metas (avance por tramo)")
 
-        # Tramos definidos con valor representativo (punto medio)
-        TRAMOS = [
-            ("0–25%  | Avance mínimo", 12.5),
-            ("26–50% | Avance parcial", 37.5),
-            ("51–75% | Avance significativo", 62.5),
-            ("76–100% | Meta alcanzada", 87.5),
-        ]
+        # --- Estilos para bloques tipo "card" (metas) ---
+        st.markdown("""
+        <style>
+        .meta-title{
+            font-size:17px;
+            font-weight:900;
+            color:#111;
+            letter-spacing:.2px;
+            margin: 10px 0 6px 0;
+        }
+        .meta-caption{
+            margin: 0 0 10px 0;
+            color: rgba(0,0,0,.60);
+            font-size: 13px;
+        }
+        .sel-slot{
+            height: 22px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sel-badge{
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 800;
+            border: 1px solid rgba(0,0,0,.18);
+            border-radius: 999px;
+            padding: 2px 10px;
+            background: rgba(255,255,255,.85);
+            white-space: nowrap;
+        }
+        .cell-marker{ height: 0; }
+
+        /* Botón base en forma de tarjeta */
+        button{
+            width: 100% !important;
+            text-align: left !important;
+            white-space: normal !important;
+            line-height: 1.25em !important;
+            padding: 12px 12px !important;
+            border-radius: 12px !important;
+            border: 1px solid rgba(0,0,0,.12) !important;
+            background: rgba(255,255,255,.90) !important;
+            min-height: 82px !important;
+        }
+
+        /* Selección por nivel (colores) */
+        div:has(> div > .cell-marker.meta-1) button{
+            border: 2px solid #8B2E2E !important;
+            background: rgba(139,46,46,.06) !important;
+        }
+        div:has(> div > .cell-marker.meta-2) button{
+            border: 2px solid #B08900 !important;
+            background: rgba(176,137,0,.07) !important;
+        }
+        div:has(> div > .cell-marker.meta-3) button{
+            border: 2px solid #1F4E79 !important;
+            background: rgba(31,78,121,.06) !important;
+        }
+        div:has(> div > .cell-marker.meta-4) button{
+            border: 2px solid #2E7D32 !important;
+            background: rgba(46,125,50,.07) !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+        def meta_bloques(ctx: str, meta_idx: int, desc: str, prog: float, default_level: int = 1):
+            """
+            Devuelve:
+              - nivel (1..4)
+              - pct representativo (12.5, 37.5, 62.5, 87.5)
+            """
+            state_key = f"meta_{ctx}_{meta_idx}_nivel"
+            if state_key not in st.session_state:
+                st.session_state[state_key] = int(default_level)
+
+            seleccionado = int(st.session_state[state_key])
+
+            # (label, nivel, pct, help)
+            niveles = [
+                ("0–25% | Avance mínimo",        1, 12.5, "Avance muy limitado respecto a lo programado."),
+                ("26–50% | Avance parcial",      2, 37.5, "Existe avance, pero aún distante de la meta."),
+                ("51–75% | Avance significativo",3, 62.5, "Progreso importante; aún no se alcanza completamente."),
+                ("76–100% | Meta alcanzada",     4, 87.5, "La meta se cumple conforme a lo programado o se supera."),
+            ]
+
+            def _set_level(sk: str, val: int):
+                st.session_state[sk] = int(val)
+
+            st.markdown(f'<div class="meta-title">Meta {meta_idx}: {desc}</div>', unsafe_allow_html=True)
+            st.markdown(
+                f'<div class="meta-caption">Programada: {prog:g}</div>' if prog
+                else '<div class="meta-caption">Programada: 0 (sin dato / no aplica)</div>',
+                unsafe_allow_html=True
+            )
+
+            c1, c2, c3, c4 = st.columns(4)
+            cols = [c1, c2, c3, c4]
+
+            for j, (label, nivel, pct, help_txt) in enumerate(niveles):
+                with cols[j]:
+                    if seleccionado == nivel:
+                        color = {1:"#8B2E2E", 2:"#B08900", 3:"#1F4E79", 4:"#2E7D32"}[nivel]
+                        st.markdown(
+                            f"""
+                            <div class="sel-slot">
+                                <span class="sel-badge" style="border-color:{color}; color:{color};">
+                                    Seleccionado
+                                </span>
+                                <span style="flex:1; height:0; border-top:3px solid {color}; opacity:.9;"></span>
+                            </div>
+                            """,
+                            unsafe_allow_html=True
+                        )
+                        st.markdown(f'<div class="cell-marker meta-{nivel}"></div>', unsafe_allow_html=True)
+                    else:
+                        st.markdown('<div class="sel-slot"></div>', unsafe_allow_html=True)
+                        st.markdown('<div class="cell-marker"></div>', unsafe_allow_html=True)
+
+                    st.button(
+                        label,
+                        key=f"btn_{ctx}_meta{meta_idx}_{nivel}",
+                        help=help_txt,
+                        use_container_width=True,
+                        on_click=_set_level,
+                        args=(state_key, nivel),
+                    )
+
+            # pct del nivel seleccionado
+            pct = next(p for (_, n, p, _) in niveles if n == int(st.session_state[state_key]))
+            return int(st.session_state[state_key]), float(pct)
 
         meta_real, resultados = {}, {}
 
@@ -418,39 +543,15 @@ elif modo == "RH":
             except Exception:
                 prog = 0.0
 
-            st.markdown(f"**Meta {i}:** {desc}")
-            st.caption(
-                f"Programada: {prog:g}" if prog else "Programada: 0 (sin dato / no aplica)"
-            )
+            nivel_sel, pct = meta_bloques(ctx=ctx, meta_idx=i, desc=desc, prog=prog, default_level=1)
 
-            colA, colB = st.columns([1, 2])
-
-            with colA:
-                tramo_label = st.selectbox(
-                    f"Selecciona el nivel de avance",
-                    options=[t[0] for t in TRAMOS],
-                    index=0,
-                    key=f"{ctx}_meta{i}_tramo"
-                )
-
-            # Obtener porcentaje asociado al tramo seleccionado
-            pct = next(valor for (label, valor) in TRAMOS if label == tramo_label)
-
-            # Guardar valores numéricos para base de datos
+            # Guardado numérico
             resultados[f"resultado{i}"] = float(pct)
+            meta_real[f"meta{i}_real"] = float(prog) * (pct / 100.0) if prog else 0.0
 
+            st.info(f"Avance asignado: {pct:.1f}%")
             if prog:
-                meta_real[f"meta{i}_real"] = float(prog) * (pct / 100.0)
-            else:
-                meta_real[f"meta{i}_real"] = 0.0
-
-            with colB:
-                st.info(f"Avance asignado: {pct:.1f}%")
-                if prog:
-                    st.write(
-                        f"Equivalente en unidades: "
-                        f"{meta_real[f'meta{i}_real']:.2f} de {prog:g}"
-                    )
+                st.write(f"Equivalente en unidades: {meta_real[f'meta{i}_real']:.2f} de {prog:g}")
 
             st.divider()
         # ===========================================================
@@ -949,6 +1050,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
