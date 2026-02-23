@@ -466,7 +466,6 @@ elif modo == "RH":
         </style>
         """, unsafe_allow_html=True)
 
-                st.markdown("""
         <style>
 
         /* ============================= */
@@ -1128,6 +1127,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
