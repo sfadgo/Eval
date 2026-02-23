@@ -466,6 +466,66 @@ elif modo == "RH":
         </style>
         """, unsafe_allow_html=True)
 
+                st.markdown("""
+        <style>
+
+        /* ============================= */
+        /* TITULO DE META */
+        /* ============================= */
+        .meta-title{
+            font-size: 20px;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: 0.3px;
+            margin-bottom: 4px;
+        }
+
+        /* ============================= */
+        /* TEXTO PROGRAMADA */
+        /* ============================= */
+        .meta-caption{
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(0,0,0,0.55);
+            margin-bottom: 18px;
+        }
+
+        /* ============================= */
+        /* BADGE NIVEL SELECCIONADO */
+        /* ============================= */
+        .sel-badge{
+            font-size: 12px;
+            font-weight: 700;
+            padding: 3px 12px;
+            border-radius: 999px;
+        }
+
+        /* ============================= */
+        /* BLOQUES DE SELECCIÓN */
+        /* ============================= */
+        button{
+            font-size: 14px !important;
+            font-weight: 600 !important;
+        }
+
+        /* ============================= */
+        /* RESULTADO RESUMIDO */
+        /* ============================= */
+        .meta-resumen{
+            font-size: 16px;
+            font-weight: 800;
+            margin-top: 14px;
+            margin-bottom: 4px;
+        }
+
+        .meta-unidades{
+            font-size: 13px;
+            color: rgba(0,0,0,0.65);
+            margin-bottom: 16px;
+        }
+
+        </style>
+        """, unsafe_allow_html=True)
         def meta_bloques(ctx: str, meta_idx: int, desc: str, prog: float, default_level: int = 1):
             """
             Devuelve:
@@ -556,13 +616,20 @@ elif modo == "RH":
             meta_real[f"meta{i}_real"] = float(prog) * (pct_guardado / 100.0) if prog else 0.0
 
             # Mostrar rango en UI
-            st.info(f"Avance asignado: {min_pct}–{max_pct}%")
+            st.markdown(
+                f'<div class="meta-resumen">'
+                f'Nivel {nivel_sel} · {min_pct}–{max_pct}%'
+                f'</div>',
+                unsafe_allow_html=True
+            )
 
-            # Mostrar equivalente en unidades como rango (min–max)
             if prog:
-                min_val = prog * (min_pct / 100.0)
-                max_val = prog * (max_pct / 100.0)
-                st.write(f"Equivalente en unidades: {min_val:.2f} – {max_val:.2f} de {prog:g}")
+                st.markdown(
+                    f'<div class="meta-unidades">'
+                    f'Equivalente: {min_val:.2f} – {max_val:.2f} de {prog:g}'
+                    f'</div>',
+                    unsafe_allow_html=True
+                )
 
             st.divider()
         # ===========================================================
@@ -1061,6 +1128,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
