@@ -549,7 +549,7 @@ elif modo == "RH":
             resultados[f"resultado{i}"] = float(pct)
             meta_real[f"meta{i}_real"] = float(prog) * (pct / 100.0) if prog else 0.0
 
-            st.info(f"Avance asignado: {pct:.1f}%")
+            st.info(f"Avance asignado: {tramo_label.split('|')[0].strip()}")
             if prog:
                 st.write(f"Equivalente en unidades: {meta_real[f'meta{i}_real']:.2f} de {prog:g}")
 
@@ -1050,6 +1050,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
