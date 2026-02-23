@@ -470,7 +470,8 @@ elif modo == "RH":
             """
             Devuelve:
               - nivel (1..4)
-              - pct representativo (12.5, 37.5, 62.5, 87.5)
+              - min_pct, max_pct (rango seleccionado)
+              - pct_guardado (valor para guardar en DB: 25/50/75/100)
             """
             state_key = f"meta_{ctx}_{meta_idx}_nivel"
             if state_key not in st.session_state:
@@ -478,12 +479,12 @@ elif modo == "RH":
 
             seleccionado = int(st.session_state[state_key])
 
-            # (label, nivel, pct, help)
+            # (label, nivel, min_pct, max_pct, pct_guardado, help)
             niveles = [
-                ("0–25% | Avance mínimo",        1, 12.5, "Avance muy limitado respecto a lo programado."),
-                ("26–50% | Avance parcial",      2, 37.5, "Existe avance, pero aún distante de la meta."),
-                ("51–75% | Avance significativo",3, 62.5, "Progreso importante; aún no se alcanza completamente."),
-                ("76–100% | Meta alcanzada",     4, 87.5, "La meta se cumple conforme a lo programado o se supera."),
+                ("0–25% | Avance mínimo",           1, 0, 25, 25,   "Avance muy limitado respecto a lo programado."),
+                ("26–50% | Avance parcial",         2, 26, 50, 50,  "Existe avance, pero aún distante de la meta."),
+                ("51–75% | Avance significativo",   3, 51, 75, 75,  "Progreso importante; aún no se alcanza completamente."),
+                ("76–100% | Meta alcanzada",        4, 76, 100, 100,"La meta se cumple conforme a lo programado o se supera."),
             ]
 
             def _set_level(sk: str, val: int):
@@ -499,15 +500,15 @@ elif modo == "RH":
             c1, c2, c3, c4 = st.columns(4)
             cols = [c1, c2, c3, c4]
 
-            for j, (label, nivel, pct, help_txt) in enumerate(niveles):
+            for j, (label, nivel, min_pct, max_pct, pct_guardado, help_txt) in enumerate(niveles):
                 with cols[j]:
                     if seleccionado == nivel:
-                        color = {1:"#8B2E2E", 2:"#B08900", 3:"#1F4E79", 4:"#2E7D32"}[nivel]
+                        color = {1: "#8B2E2E", 2: "#B08900", 3: "#1F4E79", 4: "#2E7D32"}[nivel]
                         st.markdown(
                             f"""
                             <div class="sel-slot">
                                 <span class="sel-badge" style="border-color:{color}; color:{color};">
-                                    Seleccionado
+                                    Nivel {nivel}
                                 </span>
                                 <span style="flex:1; height:0; border-top:3px solid {color}; opacity:.9;"></span>
                             </div>
@@ -528,9 +529,12 @@ elif modo == "RH":
                         args=(state_key, nivel),
                     )
 
-            # pct del nivel seleccionado
-            pct = next(p for (_, n, p, _) in niveles if n == int(st.session_state[state_key]))
-            return int(st.session_state[state_key]), float(pct)
+            nivel_final = int(st.session_state[state_key])
+            min_pct, max_pct, pct_guardado = next(
+                (mn, mx, pg) for (_, n, mn, mx, pg, _) in niveles if n == nivel_final
+            )
+
+            return nivel_final, int(min_pct), int(max_pct), float(pct_guardado)
 
         meta_real, resultados = {}, {}
 
@@ -543,20 +547,22 @@ elif modo == "RH":
             except Exception:
                 prog = 0.0
 
-            nivel_sel, pct = meta_bloques(ctx=ctx, meta_idx=i, desc=desc, prog=prog, default_level=1)
-            RANGOS_TEXTO = {
-            1: "0–25%",
-            2: "26–50%",
-            3: "51–75%",
-            4: "76–100%",
-            }
-            # Guardado numérico
-            resultados[f"resultado{i}"] = float(pct)
-            meta_real[f"meta{i}_real"] = float(prog) * (pct / 100.0) if prog else 0.0
+            nivel_sel, min_pct, max_pct, pct_guardado = meta_bloques(
+                ctx=ctx, meta_idx=i, desc=desc, prog=prog, default_level=1
+            )
 
-            st.info(f"Avance asignado: {RANGOS_TEXTO[nivel_sel]}")
+            # Guardado numérico (DB)
+            resultados[f"resultado{i}"] = float(pct_guardado)
+            meta_real[f"meta{i}_real"] = float(prog) * (pct_guardado / 100.0) if prog else 0.0
+
+            # Mostrar rango en UI
+            st.info(f"Avance asignado: {min_pct}–{max_pct}%")
+
+            # Mostrar equivalente en unidades como rango (min–max)
             if prog:
-                st.write(f"Equivalente en unidades: {meta_real[f'meta{i}_real']:.2f} de {prog:g}")
+                min_val = prog * (min_pct / 100.0)
+                max_val = prog * (max_pct / 100.0)
+                st.write(f"Equivalente en unidades: {min_val:.2f} – {max_val:.2f} de {prog:g}")
 
             st.divider()
         # ===========================================================
@@ -1055,6 +1061,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
