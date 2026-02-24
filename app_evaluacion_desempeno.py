@@ -403,7 +403,7 @@ elif modo == "RH":
         st.markdown("""
         <style>
         .meta-title{
-            font-size:17px;
+            font-size:20px;
             font-weight:900;
             color:#111;
             letter-spacing:.2px;
@@ -1130,6 +1130,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
