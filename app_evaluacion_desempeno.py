@@ -473,7 +473,7 @@ elif modo == "RH":
 
             /* Subtítulos (st.subheader -> h2) */
             h2{
-                font-size: 38px !important;
+                font-size: 58px !important;
                 font-weight: 800 !important;
                 text-align: center !important;
                 margin-top: 30px !important;
@@ -1130,6 +1130,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
