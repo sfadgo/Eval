@@ -434,7 +434,7 @@ elif modo == "RH":
         .cell-marker{ height: 0; }
 
         /* Botón base en forma de tarjeta */
-        button{
+        .meta-cards button{
             width: 100% !important;
             text-align: left !important;
             white-space: normal !important;
@@ -447,19 +447,19 @@ elif modo == "RH":
         }
 
         /* Selección por nivel (colores) */
-        div:has(> div > .cell-marker.meta-1) button{
+        .meta-cards div:has(> div > .cell-marker.meta-1) button{
             border: 2px solid #8B2E2E !important;
             background: rgba(139,46,46,.06) !important;
         }
-        div:has(> div > .cell-marker.meta-2) button{
+        .meta-cards div:has(> div > .cell-marker.meta-2) button{
             border: 2px solid #B08900 !important;
             background: rgba(176,137,0,.07) !important;
         }
-        div:has(> div > .cell-marker.meta-3) button{
+        .meta-cards div:has(> div > .cell-marker.meta-3) button{
             border: 2px solid #1F4E79 !important;
             background: rgba(31,78,121,.06) !important;
         }
-        div:has(> div > .cell-marker.meta-4) button{
+        .meta-cards div:has(> div > .cell-marker.meta-4) button{
             border: 2px solid #2E7D32 !important;
             background: rgba(46,125,50,.07) !important;
         }
@@ -591,7 +591,7 @@ elif modo == "RH":
             )
 
             return nivel_final, int(min_pct), int(max_pct), float(pct_guardado)
-
+        st.markdown('<div class="meta-cards">', unsafe_allow_html=True)
         meta_real, resultados = {}, {}
 
         for i in range(1, 4):
@@ -633,10 +633,12 @@ elif modo == "RH":
                 )
 
             st.divider()
+        st.markdown('</div>', unsafe_allow_html=True)
         # ===========================================================
         # FACTORES DE CALIDAD (MATRIZ = selección + glosa por celda)
         # (UNA SOLA VEZ POR EVALUACIÓN)
         # ===========================================================
+        st.markdown('<div class="factor-cards">', unsafe_allow_html=True)
         st.subheader("Factores de Calidad")
         st.markdown("""
         <style>
@@ -672,7 +674,7 @@ elif modo == "RH":
         }
 
         /* Botón base */
-        button{
+        .factor-cards button{
             width: 100% !important;
             text-align: left !important;
             white-space: normal !important;
@@ -685,25 +687,25 @@ elif modo == "RH":
         }
 
         /* NIVEL 1 */
-        div:has(> div > .cell-marker.nivel-1) button{
+        .factor-cards div:has(> div > .cell-marker.nivel-1) button{
             border: 2px solid #8B2E2E !important;
             background: rgba(139,46,46,.06) !important;
         }
 
         /* NIVEL 2 */
-        div:has(> div > .cell-marker.nivel-2) button{
+        .factor-cards div:has(> div > .cell-marker.nivel-2) button{
             border: 2px solid #B08900 !important;
             background: rgba(176,137,0,.07) !important;
         }
 
         /* NIVEL 3 */
-        div:has(> div > .cell-marker.nivel-3) button{
+        .factor-cards div:has(> div > .cell-marker.nivel-3) button{
             border: 2px solid #1F4E79 !important;
             background: rgba(31,78,121,.06) !important;
         }
 
         /* NIVEL 4 */
-        div:has(> div > .cell-marker.nivel-4) button{
+        .factor-cards div:has(> div > .cell-marker.nivel-4) button{
             border: 2px solid #2E7D32 !important;
             background: rgba(46,125,50,.07) !important;
         }
@@ -1066,7 +1068,7 @@ elif modo == "RH":
 
         puntaje_total = int(sum(calidad.values()))
         st.write(f"**Puntaje total:** {puntaje_total}/48")
-
+        st.markdown('</div>', unsafe_allow_html=True)
 
         # ---------------- FECHA Y COMENTARIOS ----------------
         st.subheader("Fecha y Comentarios")
@@ -1129,6 +1131,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
