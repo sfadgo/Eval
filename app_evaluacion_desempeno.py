@@ -465,37 +465,7 @@ elif modo == "RH":
         }
         </style>
         """, unsafe_allow_html=True)
-        st.markdown(
-            """
-        <style>
 
-            /* ============================= */
-            /* SUBTÍTULOS PRINCIPALES (st.subheader) */
-            /* ============================= */
-            h2 {
-                font-size: 28px !important;
-                font-weight: 800 !important;
-                text-align: center !important;
-                margin-top: 30px !important;
-                margin-bottom: 25px !important;
-                letter-spacing: 0.5px;
-            }
-
-            /* ============================= */
-            /* TÍTULOS MÁS PEQUEÑOS (h3 si los usas) */
-            /* ============================= */
-            h3 {
-                font-size: 22px !important;
-                font-weight: 700 !important;
-                text-align: center !important;
-                margin-top: 25px !important;
-                margin-bottom: 20px !important;
-            }
-
-            </style>
-            """,
-            unsafe_allow_html=True
-        )
         /* ============================= */
         /* TITULO DE META */
         /* ============================= */
@@ -534,7 +504,37 @@ elif modo == "RH":
             font-size: 14px !important;
             font-weight: 600 !important;
         }
+        st.markdown(
+            """
+            <style>
 
+            /* ============================= */
+            /* SUBTÍTULOS PRINCIPALES (st.subheader) */
+            /* ============================= */
+            h2 {
+                font-size: 28px !important;
+                font-weight: 800 !important;
+                text-align: center !important;
+                margin-top: 30px !important;
+                margin-bottom: 25px !important;
+                letter-spacing: 0.5px;
+            }
+
+            /* ============================= */
+            /* TÍTULOS MÁS PEQUEÑOS (h3 si los usas) */
+            /* ============================= */
+            h3 {
+                font-size: 22px !important;
+                font-weight: 700 !important;
+                text-align: center !important;
+                margin-top: 25px !important;
+                margin-bottom: 20px !important;
+            }
+
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
         /* ============================= */
         /* RESULTADO RESUMIDO */
         /* ============================= */
@@ -1160,6 +1160,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
