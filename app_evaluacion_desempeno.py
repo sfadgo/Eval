@@ -465,62 +465,61 @@ elif modo == "RH":
         }
         </style>
         """, unsafe_allow_html=True)
+        st.markdown(
+        """
+        <style>
+        /* ===== Mejora tipográfica (sobrescribe lo anterior) ===== */
 
-            st.markdown(
-            """
-            <style>
-            /* ===== Mejora tipográfica (sobrescribe lo anterior) ===== */
+        /* Subtítulos (st.subheader -> h2) */
+        h2{
+            font-size: 28px !important;
+            font-weight: 800 !important;
+            text-align: center !important;
+            margin-top: 30px !important;
+            margin-bottom: 25px !important;
+            letter-spacing: .5px;
+        }
 
-            /* Subtítulos (st.subheader -> h2) */
-            h2{
-                font-size: 28px !important;
-                font-weight: 800 !important;
-                text-align: center !important;
-                margin-top: 30px !important;
-                margin-bottom: 25px !important;
-                letter-spacing: .5px;
-            }
+        /* Si llegas a usar h3 */
+        h3{
+            font-size: 22px !important;
+            font-weight: 700 !important;
+            text-align: center !important;
+            margin-top: 25px !important;
+            margin-bottom: 20px !important;
+        }
 
-            /* Si llegas a usar h3 */
-            h3{
-                font-size: 22px !important;
-                font-weight: 700 !important;
-                text-align: center !important;
-                margin-top: 25px !important;
-                margin-bottom: 20px !important;
-            }
+        /* Metas: jerarquía */
+        .meta-title{
+            font-size: 20px;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: .3px;
+            margin-bottom: 4px;
+        }
 
-            /* Metas: jerarquía */
-            .meta-title{
-                font-size: 20px;
-                font-weight: 800;
-                color: #1a1a1a;
-                letter-spacing: .3px;
-                margin-bottom: 4px;
-            }
+        .meta-caption{
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(0,0,0,.55);
+            margin-bottom: 18px;
+        }
 
-            .meta-caption{
-                font-size: 13px;
-                font-weight: 500;
-                color: rgba(0,0,0,.55);
-                margin-bottom: 18px;
-            }
+        .meta-resumen{
+            font-size: 16px;
+            font-weight: 800;
+            margin-top: 14px;
+            margin-bottom: 4px;
+        }
 
-            .meta-resumen{
-                font-size: 16px;
-                font-weight: 800;
-                margin-top: 14px;
-                margin-bottom: 4px;
-            }
-
-            .meta-unidades{
-                font-size: 13px;
-                color: rgba(0,0,0,.65);
-                margin-bottom: 16px;
-            }
-            </style>
-            """,
-            unsafe_allow_html=True
+        .meta-unidades{
+            font-size: 13px;
+            color: rgba(0,0,0,.65);
+            margin-bottom: 16px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
         )        def meta_bloques(ctx: str, meta_idx: int, desc: str, prog: float, default_level: int = 1):
             """
             Devuelve:
@@ -1128,6 +1127,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
