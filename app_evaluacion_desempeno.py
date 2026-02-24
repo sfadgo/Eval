@@ -472,7 +472,7 @@ elif modo == "RH":
             /* ===== Mejora tipográfica (sobrescribe lo anterior) ===== */
 
             /* Subtítulos (st.subheader -> h2) */
-            h2{
+            [data-testid="stMarkdownContainer"] h2 {
                 font-size: 58px !important;
                 font-weight: 800 !important;
                 text-align: center !important;
@@ -1130,6 +1130,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
