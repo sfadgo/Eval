@@ -465,7 +465,8 @@ elif modo == "RH":
         }
         </style>
         """, unsafe_allow_html=True)
-st.markdown(
+
+        st.markdown(
             """
             <style>
             /* ===== Mejora tipográfica (sobrescribe lo anterior) ===== */
@@ -521,7 +522,8 @@ st.markdown(
             """,
             unsafe_allow_html=True
         )
-def meta_bloques(ctx: str, meta_idx: int, desc: str, prog: float, default_level: int = 1):
+
+        def meta_bloques(ctx: str, meta_idx: int, desc: str, prog: float, default_level: int = 1):
             """
             Devuelve:
               - nivel (1..4)
@@ -539,7 +541,7 @@ def meta_bloques(ctx: str, meta_idx: int, desc: str, prog: float, default_level:
                 ("0–25% | Avance mínimo",           1, 0, 25, 25,   "Avance muy limitado respecto a lo programado."),
                 ("26–50% | Avance parcial",         2, 26, 50, 50,  "Existe avance, pero aún distante de la meta."),
                 ("51–75% | Avance significativo",   3, 51, 75, 75,  "Progreso importante; aún no se alcanza completamente."),
-                ("76–100% | Meta alcanzada",        4, 76, 100, 100,"La meta se cumple conforme a lo programado o se supera."),
+                ("76–100% | Meta alcanzada",        4, 76, 100, 100, "La meta se cumple conforme a lo programado o se supera."),
             ]
 
             def _set_level(sk: str, val: int):
@@ -586,7 +588,7 @@ def meta_bloques(ctx: str, meta_idx: int, desc: str, prog: float, default_level:
 
             nivel_final = int(st.session_state[state_key])
             min_pct, max_pct, pct_guardado = next(
-                (mn, mx, pg) for (_, n, mn, mx, pg, _) in niveles if n == nivel_final
+                (mn, mx, pg) for (_, n, mn, mx, pg, _,) in niveles if n == nivel_final
             )
 
             return nivel_final, int(min_pct), int(max_pct), float(pct_guardado)
@@ -1128,6 +1130,7 @@ def meta_bloques(ctx: str, meta_idx: int, desc: str, prog: float, default_level:
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
