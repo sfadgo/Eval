@@ -468,9 +468,6 @@ elif modo == "RH":
         st.markdown(
             """
         <style>
-        st.markdown(
-            """
-            <style>
 
             /* ============================= */
             /* SUBTÍTULOS PRINCIPALES (st.subheader) */
@@ -1163,6 +1160,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
