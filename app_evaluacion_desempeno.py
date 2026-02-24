@@ -615,7 +615,12 @@ elif modo == "RH":
             resultados[f"resultado{i}"] = float(pct_guardado)
             meta_real[f"meta{i}_real"] = float(prog) * (pct_guardado / 100.0) if prog else 0.0
 
-            # Mostrar rango en UI
+            # Calcular equivalente en unidades (min–max) para mostrar en UI
+            if prog:
+                min_val = prog * (min_pct / 100.0)
+                max_val = prog * (max_pct / 100.0)
+
+            # Mostrar rango en UI (sin caja azul)
             st.markdown(
                 f'<div class="meta-resumen">'
                 f'Nivel {nivel_sel} · {min_pct}–{max_pct}%'
@@ -1128,6 +1133,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
