@@ -466,64 +466,23 @@ elif modo == "RH":
         </style>
         """, unsafe_allow_html=True)
 
-        /* ============================= */
-        /* TITULO DE META */
-        /* ============================= */
-        .meta-title{
-            font-size: 20px;
-            font-weight: 800;
-            color: #1a1a1a;
-            letter-spacing: 0.3px;
-            margin-bottom: 4px;
-        }
-
-        /* ============================= */
-        /* TEXTO PROGRAMADA */
-        /* ============================= */
-        .meta-caption{
-            font-size: 13px;
-            font-weight: 500;
-            color: rgba(0,0,0,0.55);
-            margin-bottom: 18px;
-        }
-
-        /* ============================= */
-        /* BADGE NIVEL SELECCIONADO */
-        /* ============================= */
-        .sel-badge{
-            font-size: 12px;
-            font-weight: 700;
-            padding: 3px 12px;
-            border-radius: 999px;
-        }
-
-        /* ============================= */
-        /* BLOQUES DE SELECCIÓN */
-        /* ============================= */
-        button{
-            font-size: 14px !important;
-            font-weight: 600 !important;
-        }
-        st.markdown(
+            st.markdown(
             """
             <style>
+            /* ===== Mejora tipográfica (sobrescribe lo anterior) ===== */
 
-            /* ============================= */
-            /* SUBTÍTULOS PRINCIPALES (st.subheader) */
-            /* ============================= */
-            h2 {
+            /* Subtítulos (st.subheader -> h2) */
+            h2{
                 font-size: 28px !important;
                 font-weight: 800 !important;
                 text-align: center !important;
                 margin-top: 30px !important;
                 margin-bottom: 25px !important;
-                letter-spacing: 0.5px;
+                letter-spacing: .5px;
             }
 
-            /* ============================= */
-            /* TÍTULOS MÁS PEQUEÑOS (h3 si los usas) */
-            /* ============================= */
-            h3 {
+            /* Si llegas a usar h3 */
+            h3{
                 font-size: 22px !important;
                 font-weight: 700 !important;
                 text-align: center !important;
@@ -531,29 +490,38 @@ elif modo == "RH":
                 margin-bottom: 20px !important;
             }
 
+            /* Metas: jerarquía */
+            .meta-title{
+                font-size: 20px;
+                font-weight: 800;
+                color: #1a1a1a;
+                letter-spacing: .3px;
+                margin-bottom: 4px;
+            }
+
+            .meta-caption{
+                font-size: 13px;
+                font-weight: 500;
+                color: rgba(0,0,0,.55);
+                margin-bottom: 18px;
+            }
+
+            .meta-resumen{
+                font-size: 16px;
+                font-weight: 800;
+                margin-top: 14px;
+                margin-bottom: 4px;
+            }
+
+            .meta-unidades{
+                font-size: 13px;
+                color: rgba(0,0,0,.65);
+                margin-bottom: 16px;
+            }
             </style>
             """,
             unsafe_allow_html=True
-        )
-        /* ============================= */
-        /* RESULTADO RESUMIDO */
-        /* ============================= */
-        .meta-resumen{
-            font-size: 16px;
-            font-weight: 800;
-            margin-top: 14px;
-            margin-bottom: 4px;
-        }
-
-        .meta-unidades{
-            font-size: 13px;
-            color: rgba(0,0,0,0.65);
-            margin-bottom: 16px;
-        }
-
-        </style>
-        """, unsafe_allow_html=True)
-        def meta_bloques(ctx: str, meta_idx: int, desc: str, prog: float, default_level: int = 1):
+        )        def meta_bloques(ctx: str, meta_idx: int, desc: str, prog: float, default_level: int = 1):
             """
             Devuelve:
               - nivel (1..4)
@@ -1160,6 +1128,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
