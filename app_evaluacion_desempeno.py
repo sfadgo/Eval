@@ -521,7 +521,7 @@ st.markdown(
             """,
             unsafe_allow_html=True
         )
-    def meta_bloques(ctx: str, meta_idx: int, desc: str, prog: float, default_level: int = 1):
+def meta_bloques(ctx: str, meta_idx: int, desc: str, prog: float, default_level: int = 1):
             """
             Devuelve:
               - nivel (1..4)
@@ -1128,6 +1128,7 @@ st.markdown(
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
