@@ -177,7 +177,7 @@ evaluaciones_df = cargar_evaluaciones_join()
 # INTERFAZ PRINCIPAL / MODOS
 # ===========================================================
 st.title("💼 Sistema de Evaluación del Desempeño del Gobierno del Estado de Durango")
-modo = st.sidebar.radio("Selecciona el modo:", ("RH", "Administrador"))
+modo = st.sidebar.radio("Selecciona el modo:", ("Superior jerárquico", "Administrador"))
 
 # ===========================================================
 # CONTROL DE ACCESOS (USUARIOS / ROLES)
@@ -341,7 +341,7 @@ elif modo == "RH":
 
     if usuario in roles and password == roles[usuario]["password"] and roles[usuario]["rol"] == "rh":
         dependencia_rh = roles[usuario]["area"]
-        st.subheader(f"🧾 Modo Recursos Humanos: {dependencia_rh}")
+        st.subheader(f"🧾 Evaluación: {dependencia_rh}")
         st.success(f"Acceso concedido (solo puedes evaluar personal de {dependencia_rh}).")
 
         if trabajadores.empty:
@@ -1131,6 +1131,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
