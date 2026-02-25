@@ -722,228 +722,228 @@ elif modo == "Superior jerárquico":
             "CONOCIMIENTO DEL PUESTO": [
                 {
                     "resumen": "1. Conoce solo partes; requiere orientación constante.",
-                    "completo": "Conoce solo partes aisladas de sus funciones; requiere orientación constante; desconoce normatividad, procesos críticos y sistemas relevantes; confunde conceptos básicos y afecta tiempos/calidad."
+                    "completo": "POSEE MÍNIMOS CONOCIMIENTOS DEL PUESTO QUE TIENE ASIGANDO, LO QUE LE IMPIDE CUMPLIR CON LA OPORTUNIDAD Y CALIDAD ESTABLECIDA PARA LA PRESTACIÓN DE LOS SERVICIOS QUE TIENE ENCOMENDADOS."
                 },
                 {
                     "resumen": "2. Conocimiento elemental; resuelve rutinas con apoyo.",
-                    "completo": "Conoce aspectos elementales del puesto; resuelve tareas rutinarias con apoyo; domina parcialmente normatividad y procedimientos; presenta errores frecuentes en casos no estándar."
+                    "completo": "POSEE CONOCIMIENTOS ELEMENTALES DEL PUESTO QUE TIENE ASIGNADO, LO QUE PROVOCA, EN LA PRESTACIÓN DE LOS SERVICIOS QUE TIENE ENCOMENDADOS, DEFICIENCIAS EN LA OPORTUNIDAD Y CALIDAD BÁSICAS ESTABLECIDAS."
                 },
                 {
                     "resumen": "3. Conoce adecuadamente; opera con autonomía en la mayoría.",
-                    "completo": "Conoce adecuadamente el perfil del puesto; opera con autonomía en la mayoría de tareas; aplica normatividad y procedimientos con pocos errores; resuelve casos de mediana complejidad."
+                    "completo": "POSEE UN REGULAR CONOCIMIENTO DEL PUESTO QUE TIENE ASIGNADO, LO QUE LE PERMITE PRESTAR LOS SERVICIOS QUE TIENE ENCOMENDADOS CON UNA OPORTUNIDAD Y CALIDAD BÁSICAS."
                 },
                 {
                     "resumen": "4. Dominio amplio; asesora y anticipa impactos.",
-                    "completo": "Dominio amplio del puesto y sus interdependencias; aplica normativa con precisión; anticipa impactos; asesora a otros; aprende rápidamente nuevos marcos y herramientas."
+                    "completo": "POSEE AMPLIOS CONOCIMIENTOS DEL PUESTO QUE TIENE ASIGNADO, LO QUE LE PERMITE PRESTAR LOS SERVICIOS QUE TIENE ENCOMENDADOS CON LA OPORTUNIDAD Y CALIDAD REQUERIDAS."
                 },
             ],
-
+        
             "CRITERIO": [
                 {
                     "resumen": "1. Decide sin fundamento; no contrasta evidencias.",
-                    "completo": "Toma decisiones poco fundamentadas; elige alternativas que no resuelven el problema; no contrasta evidencias ni escenarios."
+                    "completo": "PROPONE SOLUCIONES IRRELEVANTES A LOS PROBLEMAS DE TRABAJO QUE SE LE PRESENTAN."
                 },
                 {
                     "resumen": "2. Decide con información básica; ignora variables a veces.",
-                    "completo": "Decide con base en información básica; a veces ignora variables relevantes; resuelve casos simples, se complica en casos medios."
+                    "completo": "PROPONE SOLUCIONES ACEPTABLES A LOS PROBLEMAS DE TRABAJO QUE SE LE PRESENTAN."
                 },
                 {
                     "resumen": "3. Analiza alternativas; pide apoyo en casos complejos.",
-                    "completo": "Analiza causas; compara alternativas; elige opciones viables; solicita apoyo oportuno en casos complejos."
+                    "completo": "PROPONE SOLUCIONES ADECUADAS A LOS PROBLEMAS DE TRABAJO QUE SE LE PRESENTAN."
                 },
                 {
                     "resumen": "4. Diagnóstico sólido; pondera riesgos y documenta.",
-                    "completo": "Formula diagnósticos sólidos; pondera riesgos/costos/tiempos; propone soluciones integrales y sostenibles; documenta decisiones."
+                    "completo": "PROPONE SOLUCIONES ÓPTIMAS A LOS PROBLEMAS DE TRABAJO QUE SE LE PRESENTAN."
                 },
             ],
-
+        
             "CALIDAD DEL TRABAJO": [
                 {
                     "resumen": "1. Entregables con errores; requiere rehacer frecuentemente.",
-                    "completo": "Entregables con errores de forma/fondo; información incompleta; necesita rehacer con frecuencia."
+                    "completo": "REALIZA TRABAJOS CON ALTO ÍNDICE DE ERRORES EN SU CONFIABILIDAD, EXACTITUD Y PRESENTACIÓN."
                 },
                 {
                     "resumen": "2. Calidad aceptable pero irregular; errores periódicos.",
-                    "completo": "Calidad aceptable pero irregular; errores periódicos; formatos parcialmente cumplidos."
+                    "completo": "REALIZA TRABAJOS REGULARES CON ALGUNOS ERRORES EN SU CONFIABILIDAD, EXACTITUD Y PRESENTACIÓN."
                 },
                 {
                     "resumen": "3. Entregables correctos y oportunos; errores esporádicos.",
-                    "completo": "Entregables correctos, completos y oportunos; estándar institucional cumplido; errores esporádicos."
+                    "completo": "REALIZA BUENOS TRABAJOS Y EXCEPCIONALMENTE COMETE ERRORES EN SU CONFIABILIDAD, EXACTITUD Y PRESENTACIÓN."
                 },
                 {
                     "resumen": "4. Alta calidad sostenida; estandariza buenas prácticas.",
-                    "completo": "Alta calidad sostenida; mejora presentaciones y claridad; estandariza buenas prácticas; cero retrabajos."
+                    "completo": "REALIZA TRABAJOS EXCELENTES SIN COMETER ERRORES EN SU CONFIABILIDAD, EXACTITUD Y PRESENTACIÓN."
                 },
             ],
-
+        
             "TÉCNICA Y ORGANIZACIÓN DEL TRABAJO": [
                 {
                     "resumen": "1. Sin métodos ni controles; desorden en archivos y tiempos.",
-                    "completo": "No aplica métodos ni controles; archivos y tiempos desordenados; genera cuellos de botella."
+                    "completo": "APLICA EN GRADO MÍNIMO LAS TÉCNICAS Y LA ORGANIZACIÓN ESTABLECIDAS PARA EL DESARROLLO DE SU TRABAJO."
                 },
                 {
                     "resumen": "2. Técnicas básicas intermitentes; documentación incompleta.",
-                    "completo": "Aplica técnicas básicas de forma intermitente; planeación limitada; documentación incompleta."
+                    "completo": "APLICA OCASIONALMENTE LAS TÉCNICAS Y LA ORGANIZACIÓN ESTABLECIDAS PARA EL DESARROLLO DE SU TRABAJO."
                 },
                 {
                     "resumen": "3. Planifica y controla avances; documenta evidencias.",
-                    "completo": "Planifica tareas; controla avances; documenta evidencias; usa correctamente formatos/herramientas."
+                    "completo": "APLICA GENERALMENTE LAS TÉCNICAS Y LA ORGANIZACIÓN ESTABLECIDAS PARA EL DESARROLLO DE SU TRABAJO."
                 },
                 {
                     "resumen": "4. Optimiza flujos; diseña checklists y reduce riesgos.",
-                    "completo": "Optimiza flujos y tiempos; simplifica procesos; diseña checklists y plantillas; reduce riesgos operativos."
+                    "completo": "APLICA LA MAYORÍA DE LAS VECES LAS TÉCNICAS Y LA ORGANIZACIÓN ESTABLECIDAS PARA EL DESARROLLO DE SU TRABAJO."
                 },
             ],
-
+        
             "NECESIDAD DE SUPERVISIÓN": [
                 {
                     "resumen": "1. Requiere seguimiento permanente; no avanza sin indicaciones.",
-                    "completo": "Requiere seguimiento permanente; no avanza sin indicaciones; pierde el enfoque con facilidad."
+                    "completo": "REQUIERE PERMANENTE SUPERVISIÓN PARA REALIZAR LAS FUNCIONES QUE TIENE ENCOMENDADAS DE ACUERDO CON EL PERFIL DE PUESTO."
                 },
                 {
                     "resumen": "2. Requiere supervisión ocasional en hitos clave.",
-                    "completo": "Requiere supervisión ocasional en hitos clave; cumple lo solicitado con guía."
+                    "completo": "REQUIERE OCASIONAL SUPERVISIÓN PARA REALIZAR LAS FUNCIONES QUE TIENE ENCOMENDADAS DE ACUERDO CON EL PERFIL DE PUESTO."
                 },
                 {
                     "resumen": "3. Mínima supervisión; reporta avances y pide revisión crítica.",
-                    "completo": "Requiere mínima supervisión; reporta avances; pide revisión en puntos críticos."
+                    "completo": "REQUIERE MÍNIMA SUPERVISIÓN PARA REALIZAR LAS FUNCIONES QUE TIENE ENCOMENDADAS DE ACUERDO CON EL PERFIL DE PUESTO."
                 },
                 {
                     "resumen": "4. Autonomía; propone objetivos y solicita validación final.",
-                    "completo": "Trabaja con autonomía; propone objetivos y verifica resultados; solo solicita validación final."
+                    "completo": "REQUIERE NULA SUPERVISIÓN PARA REALIZAR LAS FUNCIONES QUE TIENE ENCOMENDADAS DE ACUERDO CON EL PERFIL DE PUESTO."
                 },
             ],
-
+        
             "CAPACITACIÓN RECIBIDA": [
                 {
                     "resumen": "1. No aplica contenidos; sin evidencia de mejora.",
-                    "completo": "No aplica contenidos; olvida o desestima buenas prácticas; sin evidencia de mejora."
+                    "completo": "APLICA MÍNIMAMENTE EN EL TRABAJO LOS CONOCIMIENTOS ADQUIRIDOS MEDIANTE LA CAPACITACIÓN, LO QUE LE IMPIDE ELEVAR LA EFICIENCIA Y EFICACIA DE SU TRABAJO."
                 },
                 {
                     "resumen": "2. Aplica parcialmente; requiere recordatorios frecuentes.",
-                    "completo": "Aplica parcialmente lo aprendido; mejora limitada; requiere recordatorios frecuentes."
+                    "completo": "APLICA LIMITADAMENTE LOS CONOCIMIENTOS ADQUIRIDOS MEDIANTE LA CAPACITACIÓN, LO QUE LE PERMITE ELEVAR ESCASAMENTE LA EFICIENCIA Y EFICACIA DE SU TRABAJO."
                 },
                 {
                     "resumen": "3. Integra aprendizajes; mejora en tiempos y calidad.",
-                    "completo": "Integra aprendizajes en tareas; se observan mejoras en tiempos/calidad."
+                    "completo": "APLICA SUFICIENTEMENTE LOS CONOCIMIENTOS ADQUIRIDOS MEDIANTE LA CAPACITACIÓN, LO QUE LE PERMITE ELEVAR MEDIANAMENTE LA EFICIENCIA Y EFICACIA DE SU TRABAJO."
                 },
                 {
                     "resumen": "4. Difunde buenas prácticas; capacita y mejora procesos.",
-                    "completo": "Aplica y difunde buenas prácticas; capacita a otros; traduce aprendizaje en mejoras del proceso."
+                    "completo": "APLICA AMPLIAMENTE LOS CONOCIMIENTOS ADQUIRIDOS MEDIANTE LA CAPACITACIÓN, LO QUE LE PERMITE ELEVAR EN GRADO MÁXIMO LA EFICIENCIA Y EFICACIA DE SU TRABAJO."
                 },
             ],
-
+        
             "INICIATIVA": [
                 {
                     "resumen": "1. Se limita a lo solicitado; evita proponer mejoras.",
-                    "completo": "Se limita a lo solicitado; no anticipa problemas; evita proponer mejoras."
+                    "completo": "REALIZA NULAS APORTACIONES PARA EL MEJORAMIENTO DE SU TRABAJO, POR LO QUE NO CONTRIBUYE A LA DISMINUCIÓN DE LOS TIEMPOS NI AL AUMENTO DE LA CALIDAD EN LA PRESTACIÓN DE LOS SERVICIOS."
                 },
                 {
                     "resumen": "2. Propone ideas puntuales; apoya mejoras simples si se le pide.",
-                    "completo": "Propone ideas puntuales; apoya mejoras simples cuando se le pide."
+                    "completo": "REALIZA IRRELEVANTES APORTACIONES PARA EL MEJORAMIENTO DEL TRABAJO, LO CUAL PROVOCA UN MÍNIMO IMPACTO EN LA DISMINUCIÓN DE LOS TIEMPOS Y EL AUMENTO DE LA CALIDAD EN LA PRESTACIÓN DE LOS SERVICIOS."
                 },
                 {
                     "resumen": "3. Detecta oportunidades y propone acciones concretas.",
-                    "completo": "Detecta áreas de oportunidad y sugiere acciones concretas; participa activamente en mejoras."
+                    "completo": "REALIZA APORTACIONES PARA EL MEJORAMIENTO DEL TRABAJO, LO CUAL CONTRIBUYE A LA DISMINUCIÓN DE LOS TIEMPOS Y EL AUMENTO DE LA CALIDAD EN LA PRESTACIÓN DE LOS SERVICIOS."
                 },
                 {
                     "resumen": "4. Impulsa mejoras continuas; institucionaliza cambios.",
-                    "completo": "Impulsa mejoras continuas; lidera pequeños cambios; documenta e institucionaliza mejoras."
+                    "completo": "REALIZA APORTACIONES DESTACADAS PARA EL MEJORAMIENTO DEL TRABAJO, LO CUAL CONTRIBUYE A LAS DISMINUCIÓN DE LOS TIEMPOS Y EL AUMENTO DE LA CALIDAD EN LA PRESTACIÓN DE LOS SERVICIOS."
                 },
             ],
-
+        
             "COLABORACIÓN Y DISCRECIÓN": [
                 {
                     "resumen": "1. Baja cooperación; maneja mal información; genera conflictos.",
-                    "completo": "Baja cooperación; filtra información sin cuidado; genera conflictos."
+                    "completo": "MUESTRA NULA DISPOSICIÓN PARA COLABORAR EN LA REALIZACIÓN DEL TRABAJO Y PROVOCA CONFLICTOS CON LA INFORMACIÓN QUE MANEJA."
                 },
                 {
                     "resumen": "2. Colabora irregular; discreción aceptable con lapsos.",
-                    "completo": "Colabora de forma irregular; discreción aceptable con lapsos."
+                    "completo": "MUESTRA REGULAR DISPOSICIÓN PARA COLABORAR EN LA REALIZACIÓN DEL TRABAJO Y COMETE INDISCRECIONES INVOLUNTARIAS CON LA INFORMACIÓN QUE MANEJA."
                 },
                 {
                     "resumen": "3. Buena cooperación; manejo prudente de información sensible.",
-                    "completo": "Buena cooperación y comunicación; manejo prudente de información sensible."
+                    "completo": "MUESTRA BUENA DISPOSICIÓN PARA COLABORAR EN LA REALIZACIÓN DEL TRABAJO Y ES PRUDENTE CON LA INFORMACIÓN QUE MANEJA."
                 },
                 {
                     "resumen": "4. Colabora proactivamente; confidencialidad impecable.",
-                    "completo": "Colabora proactivamente; confidencialidad impecable; mejora comunicación y clima laboral."
+                    "completo": "MUESTRA NOTABLE DISPOSICIÓN PARA COLABORAR EN LA REALIZACIÓN DEL TRABAJO Y SABE UTILIZAR POSITIVAMENTE LA INFORMACIÓN QUE MANEJA."
                 },
             ],
-
+        
             "RESPONSABILIDAD Y DISCIPLINA": [
                 {
                     "resumen": "1. Incumple plazos y normas; requiere llamados de atención.",
-                    "completo": "Incumple plazos y normas; justifica sin sustento; requiere llamados de atención."
+                    "completo": "CUMPLE MÍNIMAMANETE CON LOS OBJETIVOS Y METAS INSTITUCIONALES Y EVADE SIEMPRE LAS DISPOSICIONES ESTABLECIDAS."
                 },
                 {
                     "resumen": "2. Cumple parcialmente; respeta normas con recordatorios.",
-                    "completo": "Cumple parcialmente metas; respeta normas con recordatorios."
+                    "completo": "CUMPLE OCASIONALMENTE CON LOS OBJETIVOS Y METAS INSTITUCIONALES, Y CON FRECUENCIA MANIFIESTA INCONFORMIDAD CON LAS DISPOSICIONES ESTABLECIDAS."
                 },
                 {
                     "resumen": "3. Cumple metas y disposiciones; puntual y confiable.",
-                    "completo": "Cumple metas y disposiciones; es puntual y confiable."
+                    "completo": "CUMPLE LA MAYORÍA DE LAS VECES CON LOS OBJETIVOS Y METAS INSTITUCIONALES, AUNQUE EN ALGUNAS OCASIONES OBJETA LAS DISPOSICIONES ESTABLECIDAS."
                 },
                 {
                     "resumen": "4. Excede metas con apego normativo; lidera con el ejemplo.",
-                    "completo": "Excede metas con apego normativo; promueve la disciplina con el ejemplo."
+                    "completo": "CUMPLE INVARIABLEMENTE CON LOS OBJETIVOS Y METAS INSTITUCIONALES Y SIEMPRE SE SUJETA A LAS INSTRUCCIONES O DISPOSICIONES ESTABLECIDAS."
                 },
             ],
-
+        
             "TRABAJO EN EQUIPO": [
                 {
                     "resumen": "1. Dificulta coordinación; poca apertura al consenso.",
-                    "completo": "Dificulta coordinación; impone criterios; poca apertura al consenso."
+                    "completo": "MANIFIESTA NULA DISPOSICIÓN PARA COLABORAR EN EQUIPO Y COMO MIEMBRO DEL EQUIPO, ENTORPECE LOS TRABAJOS DEL MISMO."
                 },
                 {
                     "resumen": "2. Coopera cuando se solicita; apertura moderada.",
-                    "completo": "Coopera cuando se solicita; comunicación suficiente; apertura moderada."
+                    "completo": "MANIFIESTA REGULAR DISPOSICIÓN, PARA TRABAJAR EN EQUIPO Y COMO MIEMBRO DEL EQUIPO, ES UN ELEMENTO QUE INTERFIERE A LA ACCIÓN DEL MISMO."
                 },
                 {
                     "resumen": "3. Colabora activamente; comparte información; busca acuerdos.",
-                    "completo": "Colabora activamente; comparte información; busca acuerdos."
+                    "completo": "MANIFIESTA BUENA DISPOSICIÓN, PARA TRABAJAR EN EQUIPO Y COMO MIEMBRO DEL EQUIPO, ES UN ELEMENTO QUE BENEFICIA A LA EFICIENCIA DEL MISMO."
                 },
                 {
                     "resumen": "4. Integra voluntades; facilita acuerdos y resultados conjuntos.",
-                    "completo": "Referente de equipo; integra voluntades; facilita acuerdos y entrega conjunta de resultados."
+                    "completo": "MANIFIESTA NOTABLE DISPOSICIÓN, PARA TRABAJAR EN EQUIPO Y COMO MIEMBRO DEL EQUIPO, ES UN ELEMENTO FUNDAMENTAL PARA LA EFICIENCIA DEL MISMO."
                 },
             ],
-
+        
             "RELACIONES INTERPERSONALES": [
                 {
                     "resumen": "1. Trato deficiente; conflictos frecuentes; baja escucha.",
-                    "completo": "Trato deficiente; conflictos frecuentes; baja escucha."
+                    "completo": "MANTIENE NULO GRADO DE INTERACCIÓN CON JEFES, COMPAÑEROS Y PÚBLICO."
                 },
                 {
                     "resumen": "2. Trato correcto con áreas de mejora; escucha parcial.",
-                    "completo": "Trato correcto con áreas de mejora; escucha parcial."
+                    "completo": "MANTIENE REGULAR GRADO DE INTERACCIÓN CON JEFES, COMPAÑEROS Y PÚBLICO."
                 },
                 {
                     "resumen": "3. Interacción respetuosa y efectiva; escucha activa.",
-                    "completo": "Interacción respetuosa y efectiva; escucha activa."
+                    "completo": "MANTIENE BUEN GRADO DE INTERACCIÓN CON JEFES, COMPAÑEROS Y PÚBLICO."
                 },
                 {
                     "resumen": "4. Excelente trato; empatía; resuelve tensiones constructivamente.",
-                    "completo": "Excelente trato; empatía; resolución constructiva de tensiones."
+                    "completo": "MANTIENE EXCELENTE GRADO DE INTERACCIÓN CON JEFES, COMPAÑEROS Y PÚBLICO."
                 },
             ],
-
+        
             "MEJORA CONTINUA": [
                 {
                     "resumen": "1. No identifica mejoras; estanca procesos.",
-                    "completo": "No identifica áreas de mejora; estanca procesos."
+                    "completo": "DEMUESTRA MÍNIMO COMPROMISO PARA IDENTIFICAR ÁREAS DE OPORTUNIDAD Y PROPONER MEJORAS, CON LA FINALIDAD DE ALCANZAR LOS OBJETIVOS Y METAS INSTITUCIONALES."
                 },
                 {
                     "resumen": "2. Identifica mejoras puntuales; ejecución parcial.",
-                    "completo": "Identifica mejoras puntuales; ejecución parcial."
+                    "completo": "DEMUESTRA REGULAR COMPROMISO PARA IDENTIFICAR ÁREAS DE OPORTUNIDAD Y PROPONER MEJORAS, CON LA FINALIDAD DE ALCANZAR LOS OBJETIVOS Y METAS INSTITUCIONALES."
                 },
                 {
                     "resumen": "3. Identifica y ejecuta mejoras con impacto observable.",
-                    "completo": "Identifica y ejecuta mejoras con impacto observable."
+                    "completo": "DEMUESTRA BASTANTE COMPROMISO PARA IDENTIFICAR ÁREAS DE OPORTUNIDAD Y PROPONER MEJORAS, CON LA FINALIDAD DE ALCANZAR LOS OBJETIVOS Y METAS INSTITUCIONALES."
                 },
                 {
                     "resumen": "4. Mejora sistemáticamente; mide resultados y consolida estándares.",
-                    "completo": "Mejora de manera sistemática; mide resultados; consolida estándares."
+                    "completo": "DEMUESTRA AMPLIO COMPROMISO PARA IDENTIFICAR ÁREAS DE OPORTUNIDAD Y PROPONER MEJORAS, CON LA FINALIDAD DE ALCANZAR LOS OBJETIVOS Y METAS INSTITUCIONALES."
                 },
             ],
         }
@@ -1131,6 +1131,7 @@ elif modo == "Superior jerárquico":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
