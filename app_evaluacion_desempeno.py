@@ -335,7 +335,7 @@ if modo == "Administrador":
 # ===========================================================
 # MODO RH
 # ===========================================================
-elif modo == "RH":
+elif modo == "Superior jerárquico":
     usuario = st.text_input("👤 Usuario (rh_*):")
     password = st.text_input("🔒 Contraseña:", type="password")
 
@@ -1131,6 +1131,7 @@ elif modo == "RH":
 
             except Exception as e:
                 st.error(f"❌ Error al guardar en Supabase: {e}")
+
 
 
 
